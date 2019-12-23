@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "QRPass",
+  "version": "0.2",
+  "background": {
+    "scripts": ["content.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://wyattpfeil.com/QRPassword"],
+      "js": ["mainContent.js"]
+    },
+    {
+      "matches": ["https://*/*"],
+      "js": ["pasteClipboard.js"]
+    }
+  ],
+  "browser_action": {},
+  "permissions": ["tabs", "notifications", "http://*/*", "https://*/*"],
+  "commands": {
+    "QRPass": {
+      "suggested_key": {
+        "default": "Alt+Shift+Q"
+      },
+      "description": "Enter your QR Password"
+    }
+  }
+}
